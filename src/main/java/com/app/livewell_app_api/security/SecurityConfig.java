@@ -56,7 +56,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://localhost:8080"));
+        configuration.setAllowedOrigins(Arrays.asList("https://livewell-app.netlify.app/","https://livewell-app.netlify.app"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PUT","OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("authorization","content-type"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
