@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "https://livewell-app.netlify.app", maxAge = 3600)
 @RestController
 @RequestMapping(path = "api/authorize", produces = MediaType.APPLICATION_JSON_VALUE)
 public class FishController {
@@ -30,7 +30,7 @@ public class FishController {
     @Autowired
     private FishService fishService; 
 
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://livewell-app.netlify.app")
     @GetMapping(value = "/fish")
     public List<Fish> getUserFish(Principal principal){
         User user = userService.findByAuthId(principal.getName());
@@ -43,7 +43,7 @@ public class FishController {
         return userService.getFish(user);
     }
 
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://livewell-app.netlify.app")
     @PostMapping(value="/fish")
     public List<Fish> addFish(@RequestBody Fish fish, Principal principal){
         User userInstance = userService.findByAuthId(principal.getName());
@@ -52,7 +52,7 @@ public class FishController {
         return userInstance.getFish(); 
     }
 
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://livewell-app.netlify.app")
     @DeleteMapping(value={"/fish","/fish/{id}"})
     public List<Fish> deleteFish(@PathVariable(required = false) Long id,Principal principal){
 
