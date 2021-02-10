@@ -30,6 +30,7 @@ public class FishController {
     @Autowired
     private FishService fishService; 
 
+    @CrossOrigin(origins = "https://livewell-app.netlify.app", maxAge = 3600)
     @GetMapping(value = "/fish")
     public List<Fish> getUserFish(Principal principal){
         User user = userService.findByAuthId(principal.getName());
@@ -42,6 +43,7 @@ public class FishController {
         return userService.getFish(user);
     }
 
+    @CrossOrigin(origins = "https://livewell-app.netlify.app", maxAge = 3600)
     @PostMapping(value="/fish")
     public List<Fish> addFish(@RequestBody Fish fish, Principal principal){
         User userInstance = userService.findByAuthId(principal.getName());
@@ -50,6 +52,7 @@ public class FishController {
         return userInstance.getFish(); 
     }
 
+    @CrossOrigin(origins = "https://livewell-app.netlify.app", maxAge = 3600)
     @DeleteMapping(value={"/fish","/fish/{id}"})
     public List<Fish> deleteFish(@PathVariable(required = false) Long id,Principal principal){
 
