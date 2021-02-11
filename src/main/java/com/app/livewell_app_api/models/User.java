@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity 
-@Table(name="user")  
+@Table(name="users")  
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class User {
 	private String authId;
 	
 	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id") 
     private List<Fish> fish; 
 
 	public Long getId() {
